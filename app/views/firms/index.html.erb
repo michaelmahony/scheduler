@@ -12,6 +12,7 @@
   <tbody>
     <% @firms.each do |firm| %>
       <tr>
+        <td><%= firm.name %></td>
         <td><%= link_to 'Show', firm %></td>
         <td><%= link_to 'Edit', edit_firm_path(firm) %></td>
         <td><%= link_to 'Destroy', firm, method: :delete, data: { confirm: 'Are you sure?' } %></td>

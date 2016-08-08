@@ -69,6 +69,11 @@ class FirmsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def firm_params
-      params.fetch(:firm, {})
+      params.require(:firm).permit(:name, :phone_number, :address, :city, :state, :zip_code,
+        :mon_open_time, :mon_close_time, :tue_open_time, :tue_close_time,
+        :wed_open_time, :wed_close_time, :thu_open_time, :thu_close_time,
+        :fri_open_time, :fri_close_time,
+      )
     end
+
 end

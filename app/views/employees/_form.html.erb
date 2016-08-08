@@ -1,15 +1,69 @@
-<%= form_for(employee) do |f| %>
-  <% if employee.errors.any? %>
+<%= form_for([@firm, @employee]) do |f| %>
+  <% @firm.errors.full_messages.first if @employee.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(employee.errors.count, "error") %> prohibited this employee from being saved:</h2>
+      <h2><%= pluralize(@employee.errors.count, "error") %> prohibited this employee from being saved:</h2>
 
       <ul>
-      <% employee.errors.full_messages.each do |message| %>
+      <% @employee.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
       </ul>
     </div>
-  <% end %>
+
+  <div class="fields">
+    <table>
+      <tr>
+        <td><%= f.label :first_name %></td>
+        <td><%= f.text_field :first_name %></td>
+      </tr>
+
+      <tr>
+        <td><%= f.label :last_name %></td>
+        <td><%= f.text_field :last_name %></td>
+      </tr>
+
+      <tr>
+        <td><%= f.label :email_address %></td>
+        <td> <%= f.text_field :email_address %></td>
+      </tr>
+
+      <tr>
+        <td><%= f.label :phone_number %></td>
+        <td><%= f.text_field :phone_number %></td>
+      </tr>
+
+      <tr><td></td><td></td></tr>
+      <tr><td></td><td></td></tr>
+      <tr><td></td><td></td></tr>
+
+      <tr>
+        <td><%= f.label :hourly_pay_rate %></td>
+        <td><%= f.text_field :hourly_pay_rate %></td>
+      </tr>
+
+      <tr>
+        <td><%= f.label :overtime_exempt %></td>
+        <td><%= f.check_box :overtime_exempt %></td>
+      </tr>
+
+      <tr>
+        <td><%= f.label :overtime_multiplier %></td>
+        <td><%= f.text_field :overtime_multiplier %></td>
+      </tr>
+      <tr>
+        <td><%= f.label :lunch_duration %></td>
+        <td><%= f.text_field :lunch_duration %></td>
+      </tr>
+      <tr>
+        <td><%= f.label :max_hours_hard_limit %></td>
+        <td><%= f.text_field :max_hours_hard_limit %></td>
+      </tr>
+      <tr>
+        <td><%= f.label :hours_overtime_threshold %></td>
+        <td><%= f.text_field :hours_overtime_threshold %></td>
+      </tr>
+    </table>
+  </div>
 
   <div class="actions">
     <%= f.submit %>

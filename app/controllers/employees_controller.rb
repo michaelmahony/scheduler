@@ -1,11 +1,6 @@
 class EmployeesController < ApplicationController
   before_action :set_employee, only: [:show, :edit, :update, :destroy]
 
-  # GET /employees
-  # GET /employees.json
-  def index
-    @employees = Employee.all
-  end
 
   # GET /employees/1
   # GET /employees/1.json
@@ -14,6 +9,7 @@ class EmployeesController < ApplicationController
 
   # GET /employees/new
   def new
+    @firm = Firm.find(params[:firm_id])
     @employee = Employee.new
   end
 
@@ -24,15 +20,14 @@ class EmployeesController < ApplicationController
   # POST /employees
   # POST /employees.json
   def create
-    @employee = Employee.new(employee_params)
+    @firm = Firm.find(params[:firm_id])
+    @employee = @firm.employees.new(employee_params)
 
     respond_to do |format|
       if @employee.save
-        format.html { redirect_to @employee, notice: 'Employee was successfully created.' }
-        format.json { render :show, status: :created, location: @employee }
+        format.html { redirect_to @firm, notice: 'Employee was successfully created.' }
       else
         format.html { render :new }
-        format.json { render json: @employee.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -69,6 +64,9 @@ class EmployeesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def employee_params
-      params.fetch(:employee, {})
+      params.require(:employee).permit(:first_name, :last_name, :email_address, :phone_number,
+          :hourly_pay_rate, :overtime_exempt, :overtime_multiplier, :lunch_duration, :max_hours_hard_limit,
+          :hours_overtime_threshold,
+      )
     end
 end

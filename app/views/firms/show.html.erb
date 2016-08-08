@@ -1,4 +1,31 @@
 <p id="notice"><%= notice %></p>
-
+<h2><%=	@firm.name %></h2>
 <%= link_to 'Edit', edit_firm_path(@firm) %> |
 <%= link_to 'Back', firms_path %>
+
+<br><br>
+<h3>Contact Info</h3>
+<p>
+  <%=	render partial: "contact_info" %>
+</p>
+
+
+<h3>Employees</h3>
+<%= link_to 'New', new_firm_employee_path(@firm) %>
+<%	if @firm.employees.size > 0 %>
+    <br><br>
+    <table>
+      <tr>
+        <th>Name</th><th>Phone Number</th><th>Email Address</th>
+      </tr>
+      <%	 @firm.employees.each do |employee| %>
+          <tr>
+            <td><%=	employee.first_name %> <%=	employee.last_name %></td>
+            <td><%=	employee.phone_number %></td>
+            <td><%=	employee.email_address %></td>
+          </tr>
+      <% end %>
+    </table>
+<% else %>
+  <p>No employees have been created.</p>
+<%	end %>
