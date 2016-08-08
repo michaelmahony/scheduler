@@ -5,6 +5,7 @@ class EmployeesController < ApplicationController
   # GET /employees/1
   # GET /employees/1.json
   def show
+    @firm = Firm.find(params[:firm_id])
   end
 
   # GET /employees/new
@@ -15,6 +16,7 @@ class EmployeesController < ApplicationController
 
   # GET /employees/1/edit
   def edit
+    @firm = Firm.find(params[:firm_id])
   end
 
   # POST /employees
@@ -37,7 +39,7 @@ class EmployeesController < ApplicationController
   def update
     respond_to do |format|
       if @employee.update(employee_params)
-        format.html { redirect_to @employee, notice: 'Employee was successfully updated.' }
+        format.html { redirect_to firm_employee_path(@employee), notice: 'Employee was successfully updated.' }
         format.json { render :show, status: :ok, location: @employee }
       else
         format.html { render :edit }

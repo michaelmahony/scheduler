@@ -23,6 +23,8 @@
             <td><%=	employee.first_name %> <%=	employee.last_name %></td>
             <td><%=	employee.phone_number %></td>
             <td><%=	employee.email_address %></td>
+            <td><%= link_to 'Show Details', [@firm, employee] %></td>
+
           </tr>
       <% end %>
     </table>

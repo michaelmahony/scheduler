@@ -1,0 +1,43 @@
+<table>
+  <tr>
+    <td>Name:</td><td><%= @employee.first_name %> <%= @employee.last_name %></td>
+  </tr>
+  <tr>
+    <td>Phone Number:</td><td><%= @employee.phone_number %></td>
+  </tr>
+  <tr>
+    <td>Email Address:</td><td><%= @employee.email_address %></td>
+  </tr>
+  <tr>
+    <td>Hourly Pay Rate:</td><td>$<%= @employee.hourly_pay_rate %></td>
+  </tr>
+  <tr>
+    <td>Overtime Exempt:</td>
+    <td>
+      <% if @employee.overtime_exempt %>
+          Yes
+      <% else %>
+          No
+      <% end %>
+    </td>
+  </tr>
+  <tr>
+    <td>Overtime Pay Multiplier:</td><td><%= @employee.overtime_multiplier %></td>
+  </tr>
+  <tr>
+    <td>Lunch Duration:</td><td><%= @employee.lunch_duration %> hours</td>
+  </tr>
+  <tr>
+    <td>Max working hours (hard limit):</td>
+    <td>
+      <% if @employee.max_hours_hard_limit %>
+        <%= @employee.max_hours_hard_limit %>
+      <% else %>
+        No limit
+      <% end %>
+    </td>
+  </tr>
+  <tr>
+    <td>Overtime Threshold (Hours):</td><td><%= @employee.hours_overtime_threshold %></td>
+  </tr>
+</table>
