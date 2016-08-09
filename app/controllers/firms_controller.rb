@@ -56,7 +56,7 @@ class FirmsController < ApplicationController
   def destroy
     @firm.destroy
     respond_to do |format|
-      format.html { redirect_to firms_url, notice: 'Firm was successfully destroyed.' }
+      format.html { redirect_to firms_url, notice: 'Firm was successfully deleted.' }
       format.json { head :no_content }
     end
   end
@@ -75,5 +75,4 @@ class FirmsController < ApplicationController
         :fri_open_time, :fri_close_time,
       )
     end
-
 end

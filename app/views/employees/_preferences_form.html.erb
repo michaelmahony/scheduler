@@ -1,0 +1,70 @@
+<%= form_for([@firm, @employee]) do |f| %>
+    <% if @employee.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@employee.errors.count, "error") %> prohibited this employee from being saved:</h2>
+
+          <ul>
+            <% @employee.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+
+    <div class="fields">
+      <table class="time-pref">
+        <tr>
+          <th></th>
+          <th>I can work this day</th>
+          <th>I would like not to work this day</th>
+          <th>I cannot work this day</th>
+        </tr>
+        <tr>
+          <td><%= f.label :Monday %></td>
+          <td><%= f.radio_button :mon_pref, 1.0 %></td>
+          <td><%= f.radio_button :mon_pref, 0.5 %></td>
+          <td><%= f.radio_button :mon_pref, 0.0 %></td>
+        </tr>
+        <tr>
+          <td><%= f.label :Tuesday %></td>
+          <td><%= f.radio_button :tue_pref, 1.0 %></td>
+          <td><%= f.radio_button :tue_pref, 0.5 %></td>
+          <td><%= f.radio_button :tue_pref, 0.0 %></td>
+        </tr>
+        <tr>
+          <td><%= f.label :Wednesday %></td>
+          <td><%= f.radio_button :wed_pref, 1.0 %></td>
+          <td><%= f.radio_button :wed_pref, 0.5 %></td>
+          <td><%= f.radio_button :wed_pref, 0.0 %></td>
+        </tr>
+        <tr>
+          <td><%= f.label :Thursday %></td>
+          <td><%= f.radio_button :thu_pref, 1.0 %></td>
+          <td><%= f.radio_button :thu_pref, 0.5 %></td>
+          <td><%= f.radio_button :thu_pref, 0.0 %></td>
+        </tr>
+        <tr>
+          <td><%= f.label :Friday %></td>
+          <td><%= f.radio_button :fri_pref, 1.0 %></td>
+          <td><%= f.radio_button :fri_pref, 0.5 %></td>
+          <td><%= f.radio_button :fri_pref, 0.0 %></td>
+        </tr>
+        <tr>
+          <td><%= f.label :Saturday %></td>
+          <td><%= f.radio_button :sat_pref, 1.0 %></td>
+          <td><%= f.radio_button :sat_pref, 0.5 %></td>
+          <td><%= f.radio_button :sat_pref, 0.0 %></td>
+        </tr>
+        <tr>
+          <td><%= f.label :Sunday %></td>
+          <td><%= f.radio_button :sun_pref, 1.0 %></td>
+          <td><%= f.radio_button :sun_pref, 0.5 %></td>
+          <td><%= f.radio_button :sun_pref, 0.0 %></td>
+        </tr>
+      </table>
+    </div>
+
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+<% end %>

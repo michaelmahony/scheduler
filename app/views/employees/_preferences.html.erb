@@ -1,0 +1,76 @@
+<% mapping = {0.0 => "Cannot work", 0.5 => "Prefers not to work", 1.0 => "Can work"} %>
+
+<table>
+  <tr>
+    <td>Monday:</td>
+    <td>
+      <% if @employee.mon_pref %>
+          <%= mapping[@employee.mon_pref] %>
+      <% else %>
+          Unknown
+      <% end %>
+    </td>
+  </tr>
+  <tr>
+    <td>Tuesday:</td>
+    <td>
+      <% if @employee.tue_pref %>
+          <%= mapping[@employee.tue_pref] %>
+      <% else %>
+          Unknown
+      <% end %>
+    </td>
+  </tr>
+  <tr>
+    <td>Wednesday:</td>
+    <td>
+      <% if @employee.wed_pref %>
+          <%= mapping[@employee.wed_pref] %>
+      <% else %>
+          Unknown
+      <% end %>
+    </td>
+  </tr>
+  <tr>
+    <td>Thursday:</td>
+    <td>
+      <% if @employee.thu_pref %>
+          <%= mapping[@employee.thu_pref] %>
+      <% else %>
+          Unknown
+      <% end %>
+    </td>
+  </tr>
+  <tr>
+    <td>Friday:</td>
+    <td>
+      <% if @employee.fri_pref %>
+          <%= mapping[@employee.fri_pref] %>
+      <% else %>
+          Unknown
+      <% end %>
+    </td>
+  </tr>
+  <tr>
+    <td>Saturday:</td>
+    <td>
+      <% if @employee.sat_pref %>
+          <%= mapping[@employee.sat_pref] %>
+      <% else %>
+          Unknown
+      <% end %>
+    </td>
+  </tr>
+  <tr>
+    <td>Sunday:</td>
+    <td>
+      <% if @employee.sun_pref %>
+          <%= mapping[@employee.sun_pref] %>
+      <% else %>
+          Unknown
+      <% end %>
+    </td>
+  </tr>
+
+
+</table>

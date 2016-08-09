@@ -2,9 +2,13 @@
 
 <h2><%= @employee.first_name %> <%= @employee.last_name %></h2>
 
-<%= link_to 'Edit', edit_firm_employee_path([@firm, @employee]) %> |
+<%= link_to 'Edit Details', edit_firm_employee_path([@firm, @employee]) %> |
 <%= link_to 'Back', @firm %>
 
 <br><br><br>
 <h3>Details</h3>
 <%=	render partial: "employee_details" %>
+
+<h3>Preferences</h3>
+<%= link_to 'Edit Preferences', edit_preferences_path([@firm, @employee]) %>
+<%= render partial: "preferences" %>

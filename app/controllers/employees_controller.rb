@@ -19,6 +19,11 @@ class EmployeesController < ApplicationController
     @firm = Firm.find(params[:firm_id])
   end
 
+  def edit_preferences
+    @firm = Firm.find(params[:firm_id])
+    @employee = Employee.find(params[:id])
+  end
+
   # POST /employees
   # POST /employees.json
   def create
@@ -68,7 +73,7 @@ class EmployeesController < ApplicationController
     def employee_params
       params.require(:employee).permit(:first_name, :last_name, :email_address, :phone_number,
           :hourly_pay_rate, :overtime_exempt, :overtime_multiplier, :lunch_duration, :max_hours_hard_limit,
-          :hours_overtime_threshold,
+          :hours_overtime_threshold, :mon_pref, :tue_pref, :wed_pref, :thu_pref, :fri_pref, :sat_pref, :sun_pref
       )
     end
 end

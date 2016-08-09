@@ -1,0 +1,7 @@
+<h2><%=	@employee.first_name %> <%=	@employee.last_name %></h2>
+
+<h3>Editing Work Preferences</h3>
+<%= render 'preferences_form', employee: @employee %>
+
+<%= link_to 'Show Details', [@firm, @employee] %> |
+<%= link_to 'Back', firm_path(@firm) %>
