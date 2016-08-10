@@ -48,3 +48,7 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :jruby, :x64_mingw]
 
 gem 'coffee-script-source', '1.8.0'
+
+gem 'simple_calendar', "~> 2.0"
+
+gem 'pry'

@@ -1,0 +1,17 @@
+<%= form_tag({controller: 'employees', action: 'handle_request_off'}, method: 'post') do |f| %>
+
+
+    <div class="fields">
+      <table class="time-pref">
+
+        <tr>
+          <td><%= date_field_tag(:request_off_date) %></td>
+        </tr>
+
+      </table>
+    </div>
+
+    <div class="actions">
+      <%= submit_tag "Request Day Off" %>
+    </div>
+<% end %>

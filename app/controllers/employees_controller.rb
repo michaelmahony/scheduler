@@ -6,6 +6,7 @@ class EmployeesController < ApplicationController
   # GET /employees/1.json
   def show
     @firm = Firm.find(params[:firm_id])
+
   end
 
   # GET /employees/new
@@ -23,6 +24,28 @@ class EmployeesController < ApplicationController
     @firm = Firm.find(params[:firm_id])
     @employee = Employee.find(params[:id])
   end
+
+  def request_off
+    @firm = Firm.find(params[:firm_id])
+    @employee = Employee.find(params[:id])
+  end
+
+  def handle_request_off
+    @firm = Firm.find(params[:firm_id])
+    @employee = Employee.find(params[:id])
+    the_day = params[:request_off_date]
+
+    @employee.request_off(the_day)
+    respond_to do |format|
+      if @employee.save
+        format.html { redirect_to @firm, notice: 'Day off was requested.' }
+      else
+        format.html { render :new }
+      end
+    end
+
+  end
+
 
   # POST /employees
   # POST /employees.json
@@ -42,9 +65,12 @@ class EmployeesController < ApplicationController
   # PATCH/PUT /employees/1
   # PATCH/PUT /employees/1.json
   def update
+  @firm = Firm.find(params[:firm_id])
+  @employee = Employee.find(params[:id])
+
     respond_to do |format|
       if @employee.update(employee_params)
-        format.html { redirect_to firm_employee_path(@employee), notice: 'Employee was successfully updated.' }
+        format.html { redirect_to @firm, notice: 'Employee was successfully updated.' }
         format.json { render :show, status: :ok, location: @employee }
       else
         format.html { render :edit }
@@ -73,7 +99,8 @@ class EmployeesController < ApplicationController
     def employee_params
       params.require(:employee).permit(:first_name, :last_name, :email_address, :phone_number,
           :hourly_pay_rate, :overtime_exempt, :overtime_multiplier, :lunch_duration, :max_hours_hard_limit,
-          :hours_overtime_threshold, :mon_pref, :tue_pref, :wed_pref, :thu_pref, :fri_pref, :sat_pref, :sun_pref
+          :hours_overtime_threshold, :mon_pref, :tue_pref, :wed_pref, :thu_pref, :fri_pref, :sat_pref, :sun_pref,
+           :request_off_date
       )
     end
 end

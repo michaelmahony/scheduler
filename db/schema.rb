@@ -10,10 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160804191829) do
+ActiveRecord::Schema.define(version: 20160809032854) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "days", force: :cascade do |t|
+    t.date     "date"
+    t.integer  "firm_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "employees", force: :cascade do |t|
     t.integer "firm_id"
@@ -59,6 +66,16 @@ ActiveRecord::Schema.define(version: 20160804191829) do
     t.time     "sun_close_time"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
+  end
+
+  create_table "shifts", force: :cascade do |t|
+    t.date     "date"
+    t.integer  "employee_id"
+    t.integer  "day_id"
+    t.boolean  "requested_off"
+    t.boolean  "is_scheduled"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
   end
 
 end

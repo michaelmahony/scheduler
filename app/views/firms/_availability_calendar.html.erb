@@ -1,0 +1,12 @@
+<%	 %>
+
+<%= week_calendar number_of_weeks: 2 do |date| %>
+    <%= date %>
+    <% @firm.employees.each do |employee| %>
+
+      <div>
+        <span class="label <%= employee.get_pref_class(date) %>"><%= employee.first_name %> <%= employee.last_name %></span>
+      </div>
+    <%	end %>
+
+<% end %>
