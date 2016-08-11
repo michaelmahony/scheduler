@@ -2,7 +2,7 @@ class Employee < ApplicationRecord
   belongs_to :firm
 
   def get_pref_text(date)
-    mapping = {0.0 => "Cannot work", 0.5 => "Prefers not to work", 1.0 => "Can work"}
+    mapping = {0.0 => "Prefers Off", 0.5 => "Strongly Prefers Off", 1.0 => "Can work"}
 
     # Check if the day was requested off specifically
     the_day = Day.find_by(date: date, firm: self.firm)

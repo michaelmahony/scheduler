@@ -1,7 +1,12 @@
-<%	 %>
-
-<%= week_calendar number_of_weeks: 2 do |date| %>
-    <%= date %>
+<span class="label can-work">Can Work</span>
+<span class="label cannot-work-weak">Prefers Off</span>
+<span class="label cannot-work-strong">Strongly Prefers Off</span>
+<span class="label requested-off">Specifically Requested Off</span>
+<br>
+<br>
+<br>
+<%= month_calendar do |date| %>
+    <strong><%= date.strftime("%e") %></strong>
     <% @firm.employees.each do |employee| %>
 
       <div>

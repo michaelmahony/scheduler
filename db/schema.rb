@@ -64,6 +64,35 @@ ActiveRecord::Schema.define(version: 20160809032854) do
     t.time     "sat_close_time"
     t.time     "sun_open_time"
     t.time     "sun_close_time"
+
+    t.integer 'mon_staff_target'
+    t.integer 'mon_staff_min'
+    t.integer 'mon_staff_max'
+
+    t.integer 'tue_staff_target'
+    t.integer 'tue_staff_min'
+    t.integer 'tue_staff_max'
+
+    t.integer 'wed_staff_target'
+    t.integer 'wed_staff_min'
+    t.integer 'wed_staff_max'
+
+    t.integer 'thu_staff_target'
+    t.integer 'thu_staff_min'
+    t.integer 'thu_staff_max'
+
+    t.integer 'fri_staff_target'
+    t.integer 'fri_staff_min'
+    t.integer 'fri_staff_max'
+
+    t.integer 'sat_staff_target'
+    t.integer 'sat_staff_min'
+    t.integer 'sat_staff_max'
+
+    t.integer 'sun_staff_target'
+    t.integer 'sun_staff_min'
+    t.integer 'sun_staff_max'
+
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
   end

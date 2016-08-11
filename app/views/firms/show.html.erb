@@ -3,13 +3,6 @@
 <%= link_to 'Edit', edit_firm_path(@firm) %> |
 <%= link_to 'Back', firms_path %>
 
-<br><br>
-<h3>Contact Info</h3>
-<p>
-  <%=	render partial: "contact_info" %>
-</p>
-
-
 <h3>Employees</h3>
 <%= link_to 'New', new_firm_employee_path(@firm) %>
 <%	if @firm.employees.size > 0 %>
