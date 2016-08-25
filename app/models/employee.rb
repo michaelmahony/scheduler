@@ -136,8 +136,21 @@ class Employee < ApplicationRecord
     scheduled.update!(is_scheduled: true)
   end
 
-  def get_requested_day_off_list
+  def get_is_scheduled(date)
+    # If the day and the shift exist
+    the_day = Day.find_by(date: date, firm: self.firm)
+    if the_day
+      the_shift = Shift.find_by(employee: self, day: the_day)
+      if the_shift
+        # If the employee is scheduled for the shift
+        if the_shift.is_scheduled == true
+          return true
+        end
+      end
+    end
 
+    # If any of the above conditions return false
+    return false
   end
 
 end

@@ -1,0 +1,33 @@
+<span class="label can-work">Can Work</span>
+<span class="label cannot-work-weak">Prefers Off</span>
+<span class="label cannot-work-strong">Strongly Prefers Off</span>
+<span class="label requested-off">Specifically Requested Off</span>
+<br>
+<br>
+<br>
+
+
+
+<%= month_calendar do |date| %>
+    <strong><%= date.strftime("%e") %></strong>
+    <% @firm.employees.each do |employee| %>
+
+        <div>
+          <% if employee.first_name == 'Tim' %>
+              <span class="employee label label-default">
+                <strong><%= employee.first_name %> <%= employee.last_name %></strong>
+              </span>
+          <%	else  %>
+              <span class="label <%= employee.get_pref_class(date) %>">
+                <%= employee.first_name %> <%= employee.last_name %>
+              </span>
+          <%	end %>
+        </div>
+    <%	end %>
+
+<% end %>
+
+
+<script type="text/javascript" charset="utf-8">
+
+</script>

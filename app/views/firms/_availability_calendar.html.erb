@@ -1,3 +1,4 @@
+
 <span class="label can-work">Can Work</span>
 <span class="label cannot-work-weak">Prefers Off</span>
 <span class="label cannot-work-strong">Strongly Prefers Off</span>
@@ -5,6 +6,8 @@
 <br>
 <br>
 <br>
+
+
 <%= month_calendar do |date| %>
     <strong><%= date.strftime("%e") %></strong>
     <% @firm.employees.each do |employee| %>
@@ -15,3 +18,5 @@
     <%	end %>
 
 <% end %>
+
+
