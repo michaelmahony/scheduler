@@ -2,6 +2,7 @@ class Firm < ApplicationRecord
   has_many :employees, dependent: :destroy
   has_many :days, dependent: :destroy
 
+  # so awesome, a most helpful helper method
   def auto_schedule_week(begin_date)
     week = []
 

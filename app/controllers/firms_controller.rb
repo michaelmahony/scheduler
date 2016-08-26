@@ -19,6 +19,7 @@ class FirmsController < ApplicationController
 
   # GET /firms/1/edit
   def edit
+    # would add error-handling here
   end
 
   # POST /firms
@@ -40,6 +41,7 @@ class FirmsController < ApplicationController
   # PATCH/PUT /firms/1
   # PATCH/PUT /firms/1.json
   def update
+    # i'd remove the json respond_to block-- this is scaffolding bloat
     respond_to do |format|
       if @firm.update(firm_params)
         format.html { redirect_to @firm, notice: 'Firm was successfully updated.' }
