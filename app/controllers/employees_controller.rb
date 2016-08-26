@@ -1,5 +1,6 @@
 class EmployeesController < ApplicationController
   before_action :set_employee, only: [:show, :edit, :update, :destroy]
+  # you're running the exact same code in each of the actions actions specified above
 
 
   # GET /employees/1
@@ -25,6 +26,7 @@ class EmployeesController < ApplicationController
     @employee = Employee.find(params[:id])
   end
 
+  # these features might go into a shifts controller
   def request_off
     @firm = Firm.find(params[:firm_id])
     @employee = Employee.find(params[:id])
@@ -68,6 +70,7 @@ class EmployeesController < ApplicationController
   @firm = Firm.find(params[:firm_id])
   @employee = Employee.find(params[:id])
 
+# scaffolding bloat
     respond_to do |format|
       if @employee.update(employee_params)
         format.html { redirect_to @firm, notice: 'Employee was successfully updated.' }
@@ -83,6 +86,7 @@ class EmployeesController < ApplicationController
   # DELETE /employees/1.json
   def destroy
     @employee.destroy
+    # you're not serving JSON so i would remove this. scaffolding generates a lot of extraneous stuff for most apps like controller tests
     respond_to do |format|
       format.html { redirect_to employees_url, notice: 'Employee was successfully destroyed.' }
       format.json { head :no_content }

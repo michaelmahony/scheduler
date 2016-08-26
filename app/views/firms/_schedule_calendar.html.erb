@@ -9,6 +9,7 @@
 
 
 <%= month_calendar do |date| %>
+    <!-- excellent leveraging of .strftime in general through out this app -->
     <strong><%= date.strftime("%e") %></strong>
     <% @firm.employees.each do |employee| %>
 
@@ -27,7 +28,7 @@
 
 <% end %>
 
-
+<!-- i would remove this -->
 <script type="text/javascript" charset="utf-8">
 
 </script>
